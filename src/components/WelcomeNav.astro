@@ -1,0 +1,31 @@
+---
+
+---
+
+<div id="welcome-nav" class="welcome-nav">
+  <slot />
+</div>
+
+<script is:inline>
+  if (typeof window !== "undefined") {
+    import("gsap").then(({ gsap }) => {
+      gsap.to("#welcome-nav", {
+        x: 200,
+        duration: 1.5,
+        yoyo: true,
+        repeat: 1,
+        ease: "power1.inOut",
+      });
+    });
+  }
+</script>
+
+<style>
+  .welcome-nav {
+    border: 3px dashed #ff9800;
+    background: rgba(20, 20, 20, 0.7);
+    border-radius: 1rem;
+    width: 20%;
+    /* ...otros estilos si es necesario... */
+  }
+</style>
