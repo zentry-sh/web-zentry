@@ -1,18 +1,27 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import WelcomeNav from "../components/WelcomeNav.svelte";
-
+import SectionOne from "../components/section-one/SectionOne.svelte";
+import SectionTwo from "../components/section-two/SectionTwo.svelte";
+import SectionServices from "../components/section-services/SectionServices.astro";
 import "../assets/fonts/stylesheet.css";
 ---
 
 <Layout>
   <WelcomeNav client:load />
+  <!-- <SectionOne client:load />   -->
+
+  <SectionServices />
+  <!-- <SectionTwo client:visible />  -->
 </Layout>
 
+<!-- Place the style block after the template code -->
 <style>
   body {
+    min-height: 100%;
     font-family: "CMU Typewriter Text", monospace;
-    background-color: var(--midnight-black);
+    background: #fff
+      url("https://www.transparenttextures.com/patterns/cubes.png");
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 </style>
