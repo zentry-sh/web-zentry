@@ -2,6 +2,7 @@
 const servicios = [
   {
     categoria: "Desarrollo de Software y Aplicaciones",
+    index: 1,
     items: [
       "Desarrollo de aplicaciones web (sitios, e-commerce, sistemas de gestión).",
       "Desarrollo de aplicaciones móviles (Android, iOS, multiplataforma).",
@@ -12,6 +13,7 @@ const servicios = [
   },
   {
     categoria: "Consultoría Tecnológica",
+    index: 2,
     items: [
       "Análisis y planeación estratégica de TI.",
       "Transformación digital de empresas.",
@@ -22,6 +24,7 @@ const servicios = [
   },
   {
     categoria: "Marketing y Experiencia Digital",
+    index: 3,
     items: [
       "Diseño y desarrollo de páginas web corporativas.",
       "Posicionamiento SEO y SEM.",
@@ -32,6 +35,7 @@ const servicios = [
   },
   {
     categoria: "Inteligencia de Negocios y Datos",
+    index: 4,
     items: [
       "Implementación de BI (Business Intelligence).",
       "Big Data (Hadoop, Spark, etc.).",
@@ -42,6 +46,7 @@ const servicios = [
   },
   {
     categoria: "Servicios en la Nube (Cloud)",
+    index: 5,
     items: [
       "Migración a la nube (AWS, Azure, Google Cloud).",
       "Implementación de servidores virtuales y contenedores (Docker, Kubernetes).",
@@ -52,6 +57,7 @@ const servicios = [
   },
   {
     categoria: "Ciberseguridad",
+    index: 6,
     items: [
       "Auditorías de seguridad y pruebas de penetración.",
       "Implementación de firewalls y sistemas de detección de intrusos.",
@@ -89,10 +95,11 @@ const servicios = [
       </svg>
       ¡Contáctanos por WhatsApp!
     </a>
+    <p class="atencion-personalizada">
+      Atención personalizada para entender y cubrir tus necesidades específicas.
+    </p>
   </div>
 </section>
-
----
 
 <script>
   // 👇 esto corre solo en cliente
@@ -128,9 +135,15 @@ const servicios = [
 <style>
   .contacto-btn-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 2.5rem;
+  }
+  @media (max-width: 768px) {
+    .servicio-card:nth-child(n + 4) {
+      display: none;
+    }
   }
   .contacto-btn {
     display: inline-flex;
@@ -216,5 +229,13 @@ const servicios = [
   }
   .servicio-card li {
     margin-bottom: 0.5rem;
+  }
+
+  .atencion-personalizada {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: #000;
+    opacity: 0.8;
+    align-items: center;
   }
 </style>
