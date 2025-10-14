@@ -5,14 +5,18 @@ import SectionOne from "../components/section-one/SectionOne.svelte";
 import SectionTwo from "../components/section-two/SectionTwo.svelte";
 import SectionServices from "../components/section-services/SectionServices.astro";
 import "../assets/fonts/stylesheet.css";
+import SectionMain from "../components/section-main/Section-main.astro";
+import SectionMain2 from "../components/section-main/Section-main-2.astro";
 ---
 
 <Layout>
   <WelcomeNav client:load />
   <!-- <SectionOne client:load />   -->
+  <SectionMain />
+  <SectionTwo client:visible />
+  <SectionMain2 />
 
-  <SectionServices />
-  <!-- <SectionTwo client:visible />  -->
+  <!-- <SectionServices /> -->
 </Layout>
 
 <!-- Place the style block after the template code -->

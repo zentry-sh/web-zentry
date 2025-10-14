@@ -1,7 +1,7 @@
 <script>
   import { onMount, onDestroy } from "svelte";
 
-  export let target = 123; // número final (prop opcional)
+  export let target = 4; // número final (prop opcional)
   let count = 0;
   let rootEl; // elemento observado
   let tween = null;
@@ -98,9 +98,10 @@
 <section class="section-two" bind:this={rootEl} aria-live="polite">
   <div class="wrap">
     <h2>
-      Hemos ayudado a
+      Hemos ayudado a más de
       <span class="count" aria-hidden="true">{count}</span>
       <span class="sr-only">{count} personas</span>
+      <span>personas</span>
     </h2>
   </div>
 </section>
