@@ -97,7 +97,7 @@
 
 <section class="section-two" bind:this={rootEl} aria-live="polite">
   <div class="wrap">
-    <h2>
+    <h2 style="color: aliceblue;">
       Hemos ayudado a más de
       <span class="count" aria-hidden="true">{count}</span>
       <span class="sr-only">{count} personas</span>

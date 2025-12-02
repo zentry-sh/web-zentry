@@ -32,9 +32,9 @@ To learn more about the folder structure of an Astro project, refer to [our guid
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `pnpm install`         | Installs dependencies                            |
 | `pnpm dev`             | Starts local dev server at `localhost:4321`      |
 | `pnpm build`           | Build your production site to `./dist/`          |
 | `pnpm preview`         | Preview your build locally, before deploying     |
@@ -44,3 +44,12 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+### notas
+
+1. ¿Quiénes somos y qué ofrecemos?
+2. Misión y Visión
+3. Lema Zentry
+4. Integrantes (un about me de los 4 por separado, aquí sería bueno q cada quien se describa y a la vez los demás opinemos para crear una idea personal y grupal de cada uno) y puestos respectivos
+5. Portafolio (proyectitos lindos)
+6. Ideas de SW para vender

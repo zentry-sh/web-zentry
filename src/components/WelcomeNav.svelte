@@ -7,83 +7,101 @@
   onMount(async () => {
     const { gsap } = await import("gsap");
 
-    // Animar {Z} de grande a pequeño
-    await gsap.fromTo(
-      zEl,
-      { scale: 3, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1, ease: "power1.out" }
-    );
-    // Animar el resto del texto juntando las letras (después de la animación de {Z})
-    gsap.fromTo(
-      restEl,
-      { letterSpacing: "2em", opacity: 0 },
-      {
-        letterSpacing: "0.28em",
-        opacity: 1,
-        duration: 1.2,
-        ease: "power1.inOut",
-        delay: 0.2,
-      }
-    );
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        // al bajar más de 50px
-        gsap.to(restEl, { opacity: 0, duration: 0.5 });
+    const tl = gsap.timeline({
+      onComplete: () => {
         gsap.to(navEl, {
-          height: "6.5rem",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          backgroundColor: "white",
-          color: "black",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.inOut",
+          onComplete: () => {
+            navEl.style.display = "none";
+          },
         });
-      } else {
-        gsap.to(restEl, { opacity: 1, duration: 0.5 });
-        gsap.to(navEl, {
-          height: "auto",
-          position: "sticky",
-          backgroundColor: "var(--spider-black)",
-          color: "whitesmoke",
-          boxShadow: "none",
-        });
-      }
+      },
     });
+
+    // 1. Initial state
+    gsap.set(zEl, { opacity: 0, scale: 3 });
+    gsap.set(restEl, { opacity: 0, letterSpacing: "1em" });
+
+    // 2. Animate { Z }
+    tl.to(zEl, {
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+    })
+      // 3. Animate rest of text
+      .to(
+        restEl,
+        {
+          letterSpacing: "0.05em",
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.inOut",
+        },
+        "-=0.5",
+      )
+      // 4. Hold for a moment
+      .to({}, { duration: 0.5 });
   });
 </script>
 
-<div class="welcome-nav" bind:this={navEl}>
-  <h1>
-    <span bind:this={zEl} style="display:inline-block;">{"{ Z }"}</span>
-  </h1>
-  <h2>
-    <span bind:this={restEl} style="display:inline-block; opacity:0;">
-      Zentry.sh
-    </span>
-  </h2>
+<div class="welcome-loader" bind:this={navEl}>
+  <div class="content">
+    <h1>
+      <span bind:this={zEl} class="logo-z">{"{ Z }"}</span>
+    </h1>
+    <h2>
+      <span bind:this={restEl} class="brand-text"> Zentry.sh </span>
+    </h2>
+  </div>
 </div>
 
 <style>
-  .welcome-nav {
-    background-color: var(--spider-black);
+  .welcome-loader {
+    font-family: "CMU Typewriter Text", monospace;
+    position: fixed;
+    inset: 0;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    color: white;
+  }
+
+  .content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: whitesmoke;
-    width: 100%;
-    z-index: 100;
+    justify-content: center;
   }
 
   h1 {
-    font-size: 5rem;
-    margin-top: 0;
-    margin-bottom: 0.1em;
-    padding-bottom: 0;
+    font-size: clamp(4rem, 10vw, 8rem);
+    margin: 0;
+    line-height: 1;
+    font-weight: 700;
   }
+
   h2 {
-    font-size: 2rem;
-    letter-spacing: 0.05em;
-    margin-top: 0;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    margin: 1rem 0 0;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .logo-z {
+    display: inline-block;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .brand-text {
+    display: inline-block;
+    color: #94a3b8;
   }
 </style>

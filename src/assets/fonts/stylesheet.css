@@ -57,6 +57,9 @@
     --electric-black: #292929;
     --spider-black: #040200;
 }
+.marco{
+    border: 10px solid red;
+}
 .rich-black {
     color: var(--rich-black);
 }
