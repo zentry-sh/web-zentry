@@ -1,18 +1,59 @@
 ---
-
+const SITE_TITLE = "Zentry.sh";
+const {
+  title = SITE_TITLE,
+  description = "Impulsa tu negocio con Zentry.sh, soluciones tecnológicas a tu medida.",
+  image = "/images/og-image.png",
+  url = "https://zentry.sh",
+} = Astro.props;
+const fullImage = new URL(image, import.meta.url).toString();
+const canonicalURL = new URL(url);
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Bienvenido a Zentry.sh</title>
+    <meta
+      name="description"
+      content="Impulsa tu negocio con Zentry.sh, soluciones tecnológicas a tu medida."
+    />
+    <meta
+      name="keywords"
+      content="Zentry, soluciones tecnológicas, desarrollo web, desarrollo móvil, arquitectura en la nube, AWS, automatización, soporte técnico, transformación digital"
+    />
+    <meta name="title" content="Impulsa tu negocio con Zentry.sh" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImage} />
+    <meta property="og:url" content={canonicalURL.toString()} />
+    <meta property="og:site_name" content={SITE_TITLE} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImage} />
+
+    <!-- Apple Safari / Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
+
+    <title>Impulsa tu negocio con Zentry.sh</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

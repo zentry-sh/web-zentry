@@ -26,6 +26,7 @@ import "./Section-main.scss";
     <img
       src="/images/edificio-nubes-pro.webp"
       alt="Ilustración de bienvenida"
+      loading="lazy"
     />
     <!-- overlay phrase -->
     <div class="image-overlay" aria-hidden="false">
@@ -35,9 +36,7 @@ import "./Section-main.scss";
   <section class="hero">
     <div>
       <div class="card">
-        <h1>
-          Construimos productos digitales y operaciones en la nube que escalan.
-        </h1>
+        <h1>Te ayudamos a construir y/o mejorar tus necesidades digitales.</h1>
         <p class="lead">
           Diseño y desarrollo web y móvil, arquitectura en AWS, automatización y
           soporte para equipos que quieren ir rápido — sin romper cosas.
@@ -99,9 +98,28 @@ import "./Section-main.scss";
     <div class="card">
       <h3>Casos de éxito</h3>
       <div class="portfolio" id="portafolio">
-        <div class="shot">E-commerce SaaS</div>
-        <div class="shot">Fintech App</div>
-        <div class="shot">Marketplace</div>
+        <div class="shot">
+          <h4>E-commerce "La vieja"</h4>
+          <a href="https://lavieja.pe" target="_blank" rel="noopener noreferrer"
+            >lavieja.pe</a
+          >
+        </div>
+        <div class="shot">
+          <h4>Fintech App "Xhu capital"</h4>
+          <p class="muted">Hackton fin 4 all 2025</p>
+        </div>
+        <div class="shot">
+          <h4>CRM "Sistemas cúbicos"</h4>
+          <a
+            href="https://sistema2.smuebleria.com"
+            target="_blank"
+            rel="noopener noreferrer">sistema2.smuebleria.com</a
+          >
+        </div>
+        <div class="shot">
+          <h4>App de logística "Navi"</h4>
+          <p class="muted">Plataforma interna</p>
+        </div>
       </div>
     </div>
   </section>
@@ -145,113 +163,158 @@ import "./Section-main.scss";
       © {new Date().getFullYear()} Startup Tech — Todos los derechos reservados
     </div>
     <div style="display:flex;gap:12px">
-      <a class="ghost" href="#">Términos</a>
-      <a class="ghost" href="#">Privacidad</a>
+      <a class="ghost" href="#" id="open-terms">Términos</a>
+      <a class="ghost" href="#" id="open-privacy">Privacidad</a>
     </div>
   </footer>
-</div>
-<script>
-  // 👇 esto corre solo en cliente
-  if (typeof window !== "undefined") {
-    const initContactButton = () => {
-      const btn = document.getElementById("contacto-btn");
-      if (btn) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                btn.classList.add("animate-bounce-on-view");
-              } else {
-                btn.classList.remove("animate-bounce-on-view");
-              }
-            });
-          },
-          { threshold: 0.5 },
-        );
-        observer.observe(btn);
-      }
-    };
 
-    if (document.readyState === "complete") {
-      initContactButton();
-    } else {
-      window.addEventListener("load", initContactButton);
-    }
-    document.addEventListener("astro:page-load", initContactButton);
-  }
-</script>
+  <!-- Modales -->
+  <div
+    id="modal-terms"
+    class="modal-overlay"
+    tabindex="-1"
+    aria-modal="true"
+    style="display:none"
+  >
+    <div class="modal-content">
+      <button class="modal-close" id="close-terms" aria-label="Cerrar">×</button
+      >
+      <h2>Términos</h2>
+      <p>Aquí van los términos de uso de tu sitio...</p>
+    </div>
+  </div>
+  <div
+    id="modal-privacy"
+    class="modal-overlay"
+    tabindex="-1"
+    aria-modal="true"
+    style="display:none"
+  >
+    <div class="modal-content">
+      <button class="modal-close" id="close-privacy" aria-label="Cerrar"
+        >×</button
+      >
+      <h2>Privacidad</h2>
+      <p>Aquí va la política de privacidad de tu sitio...</p>
+    </div>
+  </div>
 
-<style>
-  /* fixed bottom-right floating button */
-  .contacto-btn-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    pointer-events: auto;
-  }
-
-  /* make it slightly smaller on small screens */
-  @media (max-width: 480px) {
+  <style>
+    /* fixed bottom-right floating button */
     .contacto-btn-container {
-      bottom: 5dvh;
-      right: 10%;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      pointer-events: auto;
+    }
+
+    /* make it slightly smaller on small screens */
+    @media (max-width: 480px) {
+      .contacto-btn-container {
+        bottom: 5dvh;
+        right: 10%;
+      }
+      .contacto-btn {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .servicio-card:nth-child(n + 4) {
+        display: none;
+      }
     }
     .contacto-btn {
-      padding: 0.45rem 0.9rem;
-      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.1rem;
+      background-color: #22c55e;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 0.6rem;
+      box-shadow: 0 6px 12px -3px rgba(0, 0, 0, 0.22);
+      transition: all 0.3s ease;
     }
-  }
-  @media (max-width: 768px) {
-    .servicio-card:nth-child(n + 4) {
-      display: none;
+
+    .contacto-btn:hover {
+      background-color: #16a34a;
     }
-  }
-  .contacto-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1.1rem;
-    background-color: #22c55e;
-    color: #fff;
-    font-weight: 700;
-    font-size: 1rem;
-    border-radius: 0.6rem;
-    box-shadow: 0 6px 12px -3px rgba(0, 0, 0, 0.22);
-    transition: all 0.3s ease;
-  }
 
-  .contacto-btn:hover {
-    background-color: #16a34a;
-  }
-
-  .contacto-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.5);
-  }
-
-  .animate-bounce-on-view {
-    animation: bounceOnView 1s infinite;
-  }
-
-  @keyframes bounceOnView {
-    0%,
-    100% {
-      transform: translateY(0);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    .contacto-btn:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.5);
     }
-    50% {
-      transform: translateY(-10px);
-      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
-  }
 
-  .contacto-btn svg {
-    width: clamp(1.2rem, 4vw, 1.75rem);
-    height: clamp(1.2rem, 4vw, 1.75rem);
-  }
-</style>
+    .animate-bounce-on-view {
+      animation: bounceOnView 1s infinite;
+    }
+
+    @keyframes bounceOnView {
+      0%,
+      100% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      }
+      50% {
+        transform: translateY(-10px);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+
+    .contacto-btn svg {
+      width: clamp(1.2rem, 4vw, 1.75rem);
+      height: clamp(1.2rem, 4vw, 1.75rem);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      max-width: 400px;
+      width: 90vw;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+      position: relative;
+      text-align: left;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: #2563eb;
+    }
+    .modal-content p {
+      font-size: 1rem;
+      color: #222;
+      margin-bottom: 0;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #2563eb;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</div>
