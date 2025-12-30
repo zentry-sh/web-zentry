@@ -1,0 +1,80 @@
+
+
+@font-face {
+    font-family: 'CMU Typewriter Text';
+    src: url('CMUTypewriter-Regular.woff2') format('woff2'),
+        url('CMUTypewriter-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CMU Typewriter Text Variable Width';
+    src: url('CMUTypewriterVariable.woff2') format('woff2'),
+        url('CMUTypewriterVariable.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CMU Typewriter Text';
+    src: url('CMUTypewriter-Bold.woff2') format('woff2'),
+        url('CMUTypewriter-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CMU Typewriter Text';
+    src: url('CMUTypewriter-Oblique.woff2') format('woff2'),
+        url('CMUTypewriter-Oblique.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CMU Serif Extra';
+    src: url('CMUSerif-BoldNonextended.woff2') format('woff2'),
+        url('CMUSerif-BoldNonextended.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --rich-black: #0A0A0A;
+    --smoky-black: #101720;
+    --olive-black: #242526;
+    --been-black: #1B1B1B;
+    --outer-space-black: #252525;
+    --poor-black: #3B3C3D;
+    --midnight-black: #040406;
+    --denim-black: #191C27;
+    --electric-black: #292929;
+    --spider-black: #040200;
+}
+.marco{
+    border: 10px solid red;
+}
+.rich-black {
+    color: var(--rich-black);
+}
+.smoky-black {
+    color: var(--smoky-black);
+}
+.olive-black{
+    color: var(--olive-black);
+}
+.been-black {
+    color: var(--been-black);
+}
+.outer-space-black{
+    color: var(--outer-space-black);
+}
+.poor-black {
+    color: var(--poor-black);
+}

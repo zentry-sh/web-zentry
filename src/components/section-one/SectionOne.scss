@@ -1,0 +1,55 @@
+
+  .slider {
+    position: relative;
+    width: clamp(300px, 80vw, 420px);
+    height: clamp(42rem, 55vw, 63dvh);
+    padding-top: clamp(2rem, 10vw, 4rem);
+    margin: auto;
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+
+  .card {
+    position: absolute;
+    width: clamp(250px, 300px, 320px);
+    height: auto;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    // font-weight: bold; 
+    transition:
+      transform 1.2s ease,
+      opacity 0.4s ease;
+    background: transparent;
+  }
+  .card h1 {
+    align-self: center;
+    padding-left: clamp(1dvw, 1rem, 1.5rem);
+  }
+  .card p {
+    padding: clamp(1dvw, 1rem, 1.5rem);
+  }
+
+  .controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+  }
+
+  button {
+    // background: #5b2c6f;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    // background: #7b4be6; 
+    transform: scale(1.2);
+    transition: transform 0.4s ease;
+  }
