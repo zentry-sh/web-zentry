@@ -98,10 +98,12 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    opacity: 0; /* Oculto por defecto, GSAP lo muestra */
   }
 
   .brand-text {
     display: inline-block;
     color: #94a3b8;
+    opacity: 0; /* Oculto por defecto, GSAP lo muestra */
   }
 </style>
